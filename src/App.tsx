@@ -16,7 +16,7 @@ import { GlobalStyle } from './GlobalStyle';
 // const Star = () =>
 //   React.createElement('div', null, 'This is my first ReactComponet');
 
-const App = () => (
+const App: React.FC = () => (
   <Router>
     <Header />
     <Routes>

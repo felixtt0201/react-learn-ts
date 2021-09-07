@@ -3,8 +3,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Wrapper, Content } from './SearchBar.style';
 // image
 import searchIcon from '../../images/search-icon.svg';
-
-const SearchBar = ({ setSearchTerm }) => {
+// Types
+type Props = {
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+};
+const SearchBar: React.FC<Props> = ({ setSearchTerm }) => {
   const [state, setState] = useState('');
   const inital = useRef(true);
 

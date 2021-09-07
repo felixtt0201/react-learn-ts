@@ -2,8 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from './Thumb.style';
 
+// Types
+type Props = {
+  image: string;
+  movieId: number;
+  clickable: boolean;
+};
+
 // Thumb Component
-const Thumb = ({ image, movieId, clickable }) => (
+const Thumb: React.FC<Props> = ({ image, movieId, clickable }) => (
   <div>
     {clickable ? (
       <Link to={`/${movieId}`}>

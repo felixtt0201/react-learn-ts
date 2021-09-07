@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 // API
-import API from '../API';
+import API, { Movie } from '../API';
 
 // Helpers
 import { isPersistedState } from '../helpers';
@@ -10,7 +10,7 @@ import { isPersistedState } from '../helpers';
 // 初始化state
 const initialState = {
   page: 0,
-  results: [],
+  results: [] as Movie[],
   total_pages: 0,
   total_results: 0,
 };
@@ -22,12 +22,12 @@ export const useHomeFetch = () => {
   const [error, setError] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  const fetchMovies = async (page, searchIerm = '') => {
+  const fetchMovies = async (page: number, searchTerm = '') => {
     try {
       setError(false);
       setLoading(true);
 
-      const movies = await API.fetchMovies(searchIerm, page);
+      const movies = await API.fetchMovies(searchTerm, page);
 
       setState((prev) => ({
         ...movies,
