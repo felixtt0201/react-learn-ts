@@ -4,7 +4,13 @@ import { calcTime, convertMoney } from '../../helpers';
 
 import { Wrapper, Content } from './MovieInfoBar.style';
 
-const MovieInfoBar = ({ time, budget, revenue }) => (
+//  Types
+type Props = {
+  time: number;
+  budget: number;
+  revenue: number;
+};
+const MovieInfoBar: React.FC<Props> = ({ time, budget, revenue }) => (
   <Wrapper>
     <Content>
       <div className="column">

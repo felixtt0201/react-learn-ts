@@ -11,7 +11,12 @@ import NoImage from '../../images/no_image.jpg';
 
 import { Wrapper, Content, Text } from './MovieInfo.style';
 
-const MovieInfo = ({ movie }) => (
+// Types
+import { MovieState } from '../../hooks/useMovieFetch';
+type Props = {
+  movie: MovieState;
+};
+const MovieInfo: React.FC<Props> = ({ movie }) => (
   <Wrapper backdrop={movie.backdrop_path}>
     <Content>
       <Thumb
@@ -21,7 +26,6 @@ const MovieInfo = ({ movie }) => (
             : NoImage
         }
         clickable={false}
-        alt="movie-thumb"
       />
       <Text>
         <h1>{movie.title}</h1>
